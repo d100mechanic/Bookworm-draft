@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<!--
+This is my draft of the Open2 Engine "Bookworm", a simple file reader
+last updated: 2017-10-04
+-->
+<html>
+<head>
+    <title>Bookworm Draft</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="css/jquery-ui.css">
+    <link rel="stylesheet" type="text/css" href="css/jquery-ui.structure.css">
+    <link rel="stylesheet" type="text/css" href="css/jquery-ui.theme.css">
+    <link rel="stylesheet" type="text/css" href="css/bookworm.css">
+    <link rel="shortcut icon" href="favicon.ico" />
+</head>
+
+<body>
+<!--
+SET THE TAB DIV AND HEADERS
+-->
+<div id="tabs">
+<ul>
+    <li><a href="#reader_tab">Reader</a></li>
+    <li><a href="#credits_tab">Credits</a></li>
+</ul>
+<!--
+LOAD & READ SECTION
+-->
+<div id="reader_tab">
+    <div id="load">
+    <h1>Welcome To The Open2 Engine: Bookworm</h1>
+    <p>Bookworm is a simple program to read documents.</p>
+    <table>
+        <tr>
+        <td>Select a File to Load:</td>
+        <td><input type="file" accept="text/*" id="fileToLoad" onchange='loadFileAsText()'></td>
+        </tr>
+    </table>
+    </div>
+
+<div id="reader" class="passage"></div>
+<button id="btnLoadReturn" class="BtnBackToLoad" onclick="backToLoad()">Load Another File</button>
+
+</div>
+<!--
+CREDITS SECTION
+-->
+<div id="credits_tab">
+    <p>Bookworm was written by <a href="http://d100mechanic.blogspot.com" target="_blank">The d100 Mechanic</a> and is released under a Creative Commons <a href="file:///C:/Users/user/Documents/Saved%20Documents/Writing%20and%20Creating%20Works/Creative%20Commons/legalcode" target="_blank">Attribution 4.0 International</a> License</p>
+    <p>Using the following Javascript Libraries:
+        <br><a href="https://jquery.com/" target="_blank">jQuery</a>
+        <br><a href="https://jqueryui.com/" target="_blank">jQuery UI</a>
+        <br>
+        <br>And JavaScript code from the blog: <a href="https://thiscouldbebetter.wordpress.com/2012/12/18/loading-editing-and-saving-a-text-file-in-html5-using-javascrip/" target="_blank">This Could Be Better</a>
+    </p>
+</div>
+
+</div>
+    
+    <script src="javascript/jquery-3.2.1.js"></script>
+    <script src="javascript/jquery-ui.js"></script>
+    <script src="javascript/bookworm.js"></script>
+</body>
+</html>

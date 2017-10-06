@@ -1,0 +1,13 @@
+/*
+This is the CSS code for The Open2 Engine "Bookworm"
+*/
+
+.passage {
+    display: none;
+}
+
+.BtnBackToLoad {
+    display: none;
+    float: right;
+    margin-top: 10px;
+}
