@@ -7,7 +7,27 @@ This is the CSS code for The Open2 Engine "Bookworm"
 }
 
 .BtnBackToLoad {
-    display: none;
     float: right;
+    clear: left;
     margin-top: 10px;
+}
+
+.BtnNotes {
+    float: left;
+}
+
+#tabs {
+    min-height: 600px;
+}
+
+#display {
+    margin-bottom: 20px;
+}
+
+#txtDocumentNotes{
+    clear: both;
+}
+
+#btnLoadNotes {
+    clear: left;
 }

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <!--
 This is my draft of the Open2 Engine "Bookworm", a simple file reader
-last updated: 2017-10-04
+last updated: 2017-10-13
 -->
 <html>
 <head>
@@ -30,18 +30,22 @@ LOAD & READ SECTION
 <div id="reader_tab">
     <div id="load">
     <h1>Welcome To The Open2 Engine: Bookworm</h1>
-    <p>Bookworm is a simple program to read documents.</p>
-    <table>
-        <tr>
-        <td>Select a File to Load:</td>
-        <td><input type="file" accept="text/*" id="fileToLoad" onchange='loadFileAsText()'></td>
-        </tr>
-    </table>
+    <p>Bookworm is a simple program to read documents and take notes.</p>
+        Select a Document to Load: <input type="file" accept="text/*" id="documentToLoad" onchange='loadDocumentText()'>
     </div>
 
-<div id="reader" class="passage"></div>
-<button id="btnLoadReturn" class="BtnBackToLoad" onclick="backToLoad()">Load Another File</button>
-
+<div id="reader" class="passage">
+    <div id="display"></div>
+    <div id="accordion">
+        <h3>Document Notes</h3>
+        <div>
+            <textarea id="txtDocumentNotes" cols="80" rows="15"></textarea>
+            <br><input type="file" class="BtnNotes" accept="text/*" id="notesToLoad" onchange='loadNotesText()'>
+            <button class="BtnNotes" id="btnSaveNotes" onclick="saveNotesFile()">Save Notes to File</button>
+        </div>
+    </div>
+    <button id="btnLoadReturn" class="BtnBackToLoad" onclick="backToLoad()">Load Another Document</button>
+</div>
 </div>
 <!--
 CREDITS SECTION

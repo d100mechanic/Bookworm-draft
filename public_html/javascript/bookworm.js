@@ -5,7 +5,14 @@
 
 //function to load all the jQuery UI elements
 function jQueryUIsetup (){
-    $( "#tabs" ).tabs();
+    $( "#tabs" ).tabs({
+        heightStyle: "fill"
+    });
+    $( "#accordion" ).accordion({
+        collapsible: true,
+        heightStyle: "content",
+        icons: { "header": "ui-icon-pencil", "activeHeader": "ui-icon-pencil" }
+    });
 };
 
 
@@ -21,26 +28,60 @@ function setGotoListener() {
 };
 
 //Function to load the file and append it to the reader div
-function loadFileAsText()
+function loadDocumentText()
 {
-    var fileToLoad = document.getElementById("fileToLoad").files[0];
+    var fileToLoad = document.getElementById("documentToLoad").files[0];
  
     var fileReader = new FileReader();
     fileReader.onload = function(fileLoadedEvent) 
     {
         var textFromFileLoaded = fileLoadedEvent.target.result;
-        document.getElementById("reader").innerHTML = textFromFileLoaded;
+        document.getElementById("display").innerHTML = textFromFileLoaded;
         $('#load').hide();
         $('#reader').show();
-        $('#btnLoadReturn').show();
     };
     fileReader.readAsText(fileToLoad, "UTF-8");
+}
+
+function loadNotesText()
+{
+    var fileToLoad = document.getElementById("notesToLoad").files[0];
+ 
+    var fileReader = new FileReader();
+    fileReader.onload = function(fileLoadedEvent) 
+    {
+        var textFromFileLoaded = fileLoadedEvent.target.result;
+        document.getElementById("txtDocumentNotes").value = textFromFileLoaded;
+    };
+    fileReader.readAsText(fileToLoad, "UTF-8");
+}
+
+function saveNotesFile()
+{
+    var textToSave = document.getElementById("txtDocumentNotes").value;
+    var textToSaveAsBlob = new Blob([textToSave], {type:"text/plain"});
+    var textToSaveAsURL = window.URL.createObjectURL(textToSaveAsBlob);
+    var fileNameToSaveAs = document.getElementById("notesToLoad").value.substr(12);
+ 
+    var downloadLink = document.createElement("a");
+    downloadLink.download = fileNameToSaveAs;
+    downloadLink.innerHTML = "Download File";
+    downloadLink.href = textToSaveAsURL;
+    downloadLink.onclick = destroyClickedElement;
+    downloadLink.style.display = "none";
+    document.body.appendChild(downloadLink);
+ 
+    downloadLink.click();
+}
+ 
+function destroyClickedElement(event)
+{
+    document.body.removeChild(event.target);
 }
 
 //button to hide loaded file and show load div
 function backToLoad () {
     $('#reader').hide();
-    $('#btnLoadReturn').hide();
     $('#load').show();
 }
 
