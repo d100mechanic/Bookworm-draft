@@ -2,6 +2,20 @@
 This is the CSS code for The Open2 Engine "Bookworm"
 */
 
+body {
+    margin-bottom: 50px;
+}
+
+.light {
+    color: black;
+    background-color: white;
+}
+
+.dark {
+    color: lightgrey;
+    background-color: black;
+}
+
 .passage {
     display: none;
 }
@@ -16,10 +30,6 @@ This is the CSS code for The Open2 Engine "Bookworm"
     float: left;
 }
 
-#tabs {
-    min-height: 600px;
-}
-
 #display {
     margin-bottom: 20px;
 }
@@ -30,4 +40,8 @@ This is the CSS code for The Open2 Engine "Bookworm"
 
 #btnLoadNotes {
     clear: left;
+}
+
+#txtDocumentNotes {
+    width: 95%;
 }

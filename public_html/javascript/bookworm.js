@@ -6,13 +6,25 @@
 //function to load all the jQuery UI elements
 function jQueryUIsetup (){
     $( "#tabs" ).tabs({
-        heightStyle: "fill"
+        heightStyle: "content"
     });
     $( "#accordion" ).accordion({
         collapsible: true,
         heightStyle: "content",
         icons: { "header": "ui-icon-pencil", "activeHeader": "ui-icon-pencil" }
     });
+    $('#btnSaveNotes').button ({
+        disabled: true,
+        icon: "ui-icon-disk"
+    });
+    $('#btnLoadReturn').button ({
+        icon: "ui-icon-refresh"
+    });
+    $('#theme_light').button ({
+        disabled: true
+    });
+    $('#theme_dark').button ();
+    $('#tabs').show();
 };
 
 
@@ -43,6 +55,7 @@ function loadDocumentText()
     fileReader.readAsText(fileToLoad, "UTF-8");
 }
 
+//Function to load text file in notes textarea
 function loadNotesText()
 {
     var fileToLoad = document.getElementById("notesToLoad").files[0];
@@ -54,8 +67,10 @@ function loadNotesText()
         document.getElementById("txtDocumentNotes").value = textFromFileLoaded;
     };
     fileReader.readAsText(fileToLoad, "UTF-8");
+    $('#btnSaveNotes').button( "option", "disabled", false );
 }
 
+//Function to save textarea as text file
 function saveNotesFile()
 {
     var textToSave = document.getElementById("txtDocumentNotes").value;
@@ -73,7 +88,8 @@ function saveNotesFile()
  
     downloadLink.click();
 }
- 
+
+//Destroy triggering element, used to remove hidden link for download
 function destroyClickedElement(event)
 {
     document.body.removeChild(event.target);
@@ -84,6 +100,11 @@ function backToLoad () {
     $('#reader').hide();
     $('#load').show();
 }
+
+//function to change the theme
+function toggleTheme () {
+    $('body').toggleClass("light dark");
+};
 
 //everything defined, so run setup functions
 jQueryUIsetup();

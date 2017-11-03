@@ -15,22 +15,28 @@ last updated: 2017-10-13
     <link rel="shortcut icon" href="favicon.ico" />
 </head>
 
-<body>
+<body class="light">
+<!--
+SET SPLASH SCREEN TO HIDE UI STYLING ON LOAD
+-->
+<div id="splash">
+    <h1>Welcome To The Open2 Engine: Bookworm</h1>
+    <p>Bookworm is a simple program to read documents and take notes.</p>
+</div>
 <!--
 SET THE TAB DIV AND HEADERS
 -->
-<div id="tabs">
+<div id="tabs" class="passage">
 <ul>
     <li><a href="#reader_tab">Reader</a></li>
     <li><a href="#credits_tab">Credits</a></li>
+    <li><a href="#settings_tab">Settings</a></li>
 </ul>
 <!--
 LOAD & READ SECTION
 -->
 <div id="reader_tab">
     <div id="load">
-    <h1>Welcome To The Open2 Engine: Bookworm</h1>
-    <p>Bookworm is a simple program to read documents and take notes.</p>
         Select a Document to Load: <input type="file" accept="text/*" id="documentToLoad" onchange='loadDocumentText()'>
     </div>
 
@@ -39,7 +45,7 @@ LOAD & READ SECTION
     <div id="accordion">
         <h3>Document Notes</h3>
         <div>
-            <textarea id="txtDocumentNotes" cols="80" rows="15"></textarea>
+            <textarea id="txtDocumentNotes" rows="15"></textarea>
             <br><input type="file" class="BtnNotes" accept="text/*" id="notesToLoad" onchange='loadNotesText()'>
             <button class="BtnNotes" id="btnSaveNotes" onclick="saveNotesFile()">Save Notes to File</button>
         </div>
@@ -48,10 +54,16 @@ LOAD & READ SECTION
 </div>
 </div>
 <!--
+SETTINGS SECTION
+-->
+<div id="settings_tab">
+    Theme <button id="theme_light" onclick="toggleTheme()">Light</button> <button id="theme_dark" onclick="toggleTheme()">Dark</button>
+</div>
+<!--
 CREDITS SECTION
 -->
 <div id="credits_tab">
-    <p>Bookworm was written by <a href="http://d100mechanic.blogspot.com" target="_blank">The d100 Mechanic</a> and is released under a Creative Commons <a href="file:///C:/Users/user/Documents/Saved%20Documents/Writing%20and%20Creating%20Works/Creative%20Commons/legalcode" target="_blank">Attribution 4.0 International</a> License</p>
+    <p>Bookworm was written by <a href="http://d100mechanic.blogspot.com" target="_blank">The d100 Mechanic</a> and is released under a Creative Commons <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank">Attribution 4.0 International</a> License</p>
     <p>Using the following Javascript Libraries:
         <br><a href="https://jquery.com/" target="_blank">jQuery</a>
         <br><a href="https://jqueryui.com/" target="_blank">jQuery UI</a>
