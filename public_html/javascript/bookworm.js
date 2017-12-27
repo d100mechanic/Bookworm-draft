@@ -20,16 +20,21 @@ function jQueryUIsetup (){
     $('#btnLoadReturn').button ({
         icon: "ui-icon-refresh"
     });
-    $('#theme_light').button ({
-        disabled: true
+    $('#ThemeSelect').selectmenu ({
+        change: function () {
+        $("#uistyle").attr("href", $('#ThemeSelect').find(":selected").val());
+        $('body, textarea').removeClass("light dark");
+        $('body, textarea').addClass($('#ThemeSelect').find(":selected").attr('data-background'));
+        }
     });
-    $('#theme_dark').button ();
     $('#tabs').show();
 };
 
 
-//Set a click handler for the <body> on anything with the attribute of "data-goto"
-function setGotoListener() {
+//Set all of the event listeners
+function setEventListeners() {
+    
+    //listener for data-goto text navigation
     $('body').on('click', '[data-goto]', function (event) {
     //get the data-goto value and convert to a CSS Selector
     let sGoto = "#" + $(this).attr('data-goto');
@@ -101,11 +106,6 @@ function backToLoad () {
     $('#load').show();
 }
 
-//function to change the theme
-function toggleTheme () {
-    $('body').toggleClass("light dark");
-};
-
 //everything defined, so run setup functions
 jQueryUIsetup();
-setGotoListener();
+setEventListeners();

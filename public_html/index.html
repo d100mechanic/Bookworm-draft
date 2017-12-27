@@ -1,16 +1,15 @@
 <!DOCTYPE html>
 <!--
 This is my draft of the Open2 Engine "Bookworm", a simple file reader
-last updated: 2017-10-13
+last updated: 2017-11-10
 -->
 <html>
 <head>
     <title>Bookworm Draft</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="css/jquery-ui.css">
     <link rel="stylesheet" type="text/css" href="css/jquery-ui.structure.css">
-    <link rel="stylesheet" type="text/css" href="css/jquery-ui.theme.css">
+    <link id="uistyle" rel="stylesheet" type="text/css" href="css/jquery-ui-med_blue_for_light_background.css">
     <link rel="stylesheet" type="text/css" href="css/bookworm.css">
     <link rel="shortcut icon" href="favicon.ico" />
 </head>
@@ -57,7 +56,12 @@ LOAD & READ SECTION
 SETTINGS SECTION
 -->
 <div id="settings_tab">
-    Theme <button id="theme_light" onclick="toggleTheme()">Light</button> <button id="theme_dark" onclick="toggleTheme()">Dark</button>
+    Theme Select: <select id="ThemeSelect">
+        <option value="css/jquery-ui-med_blue_for_light_background.css" data-background="light">Blue with Light Background</option>
+        <option value="css/jquery-ui-med_blue_for_dark_background.css" data-background="dark">Blue with Dark Background</option>
+        <option value="css/jquery-ui-black_for_light_background.css" data-background="light">Black with Light Background</option>
+        <option value="css/jquery-ui-black_for_dark_background.css" data-background="dark">Black with Dark Background</option>
+    </select> 
 </div>
 <!--
 CREDITS SECTION
@@ -68,7 +72,9 @@ CREDITS SECTION
         <br><a href="https://jquery.com/" target="_blank">jQuery</a>
         <br><a href="https://jqueryui.com/" target="_blank">jQuery UI</a>
         <br>
-        <br>And JavaScript code from the blog: <a href="https://thiscouldbebetter.wordpress.com/2012/12/18/loading-editing-and-saving-a-text-file-in-html5-using-javascrip/" target="_blank">This Could Be Better</a>
+        <br>And JavaScript code from the blog: 
+        <br> <a href="https://thiscouldbebetter.wordpress.com/2012/12/18/loading-editing-and-saving-a-text-file-in-html5-using-javascrip/" target="_blank">This Could Be Better</a>
+        <br> <a href="http://blog.niklasottosson.com/?p=2006 " target="_blank">Niklas Tech Blog </a>
     </p>
 </div>
 
